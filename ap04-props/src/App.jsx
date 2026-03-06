@@ -1,6 +1,21 @@
-const App = () => (
+import Pedido from "./Pedido"
+import Cartao from "./Cartao"
+import Feedback from "./Feedback"
+
+const App = () => {
+    const textoOK = "Já Recebi"
+    const textoNOK ="Não Recebi"
+    const funcaoOK = () => alert('Agradeçemos o feedback')
+    const funcaoNOK = () => alert('Verificaremos')
+    const componenteFeedback = (
+        <Feedback 
+            textoOK={textoOK}
+            textoNOK={textoNOK}
+            funcaoOK={funcaoOK}
+            funcaoNOK={funcaoNOK}/>
+    )
     // Define um elemento contenedor responsivo com largura máxima
-    <div className="container border mt-2">
+    return <div className="container border mt-2">
         <div className="row">
             <div className="col-12">
                 <i className="fa fa-hippo fa-2x p-3"></i>
@@ -9,79 +24,54 @@ const App = () => (
         {/* Cria uma linha dentro do container */}
         <div className="row">
             {/* 
-                Define as colunas dentro de uma row 
+                Define as 12 colunas dentro de uma row 
                 col-12: 12 unidades (100% da largura)
                 col-sm-12: 12 unidades em telas pequenas
                 col-lg-6: 6 unidades (50%) em telas grandes
                 col-xxl-3: 3 unidades (25%) em telas extra-grandes
             */}
             <div className="col-sm-12 col-lg-6 col-xxl-3 border">
-                {/* .card-header+.card-body */}
-                <div className="card">
-                    <div className="card-header text-muted">15/04/2025</div>
-                    <div className="card-body d-flex ">
-
-                    <div className="d-flex align-items-center">
-                    <i className="fa-solid fa-alarm-clock fa-2x"></i>
-                    </div>
-                    <div className="flex-grow-1 border rounded p-2">
-                        <h4 className="text-center">Despertador</h4>
-                        <p className="text-center">Despertador analogico</p>
-                    </div>
-                    </div>
-                </div>
+                <Cartao cabecalho="22/04/2026">
+                    <Pedido
+                        data="15/06/2024"
+                        icone="alarm-clock"
+                        titulo="Despertador"
+                        descricao="Um despertador analogico" />
+                        {componenteFeedback}
+                </Cartao>
             </div>
             <div className="col-sm-12 col-lg-6 col-xxl-3 border">
-                <div className="py-2">
-                    <div className="card">
-                    <div className="card-header text-muted">05/03/2025</div>
-                    <div className="card-body d-flex ">
-
-                    <div className="d-flex align-items-center">
-                    <i className="fa-solid fa-shirt fa-2x"></i>
-                    </div>
-                    <div className="flex-grow-1 border rounded p-2">
-                        <h4 className="text-center">Camiseta</h4>
-                        <p className="text-center">Camiseta preta</p>
-                    </div>
-                    </div>
-                </div>
-                </div>
+                <Cartao cabecalho="17/04/1024">
+                    <Pedido
+                        data="15/06/2024"
+                        icone="shirt"
+                        titulo="Camisa"
+                        descricao="Uma camisa preta" />
+                        {componenteFeedback}
+                </Cartao>
             </div>
             <div className="col-sm-12 col-lg-6 col-xxl-3 border">
-                <div className="py-2"><div className="card">
-                    <div className="card-header text-muted">15/04/2025</div>
-                    <div className="card-body d-flex ">
-
-                    <div className="d-flex align-items-center">
-                    <i className="fa-solid fa-bowling-ball fa-2x"></i>
-                    </div>
-                    <div className="flex-grow-1 border rounded p-2">
-                        <h4 className="text-center">Bola de Boliche</h4>
-                        <p className="text-center">Bola pesada</p>
-                    </div>
-                    </div>
-                </div></div>
+                <Cartao cabecalho="22/04/2024">
+                    <Pedido
+                        data="15/06/2024"
+                        icone="bowling-ball"
+                        titulo="Bola de boliche"
+                        descricao="Uma bola pesada" />
+                        {componenteFeedback}
+                </Cartao>
             </div>
             <div className="col-sm-12 col-lg-6 col-xxl-3 border">
-                <div className="py-2">
-                    <div className="card">
-                    <div className="card-header text-muted">15/04/2025</div>
-                    <div className="card-body d-flex ">
-
-                    <div className="d-flex align-items-center">
-                    <i className="fa-solid fa-bicycle fa-2x"></i>
-                    </div>
-                    <div className="flex-grow-1 border rounded p-2">
-                        <h4 className="text-center">Bicicleta</h4>
-                        <p className="text-center">Uma bicicleta 18 marchas</p>
-                    </div>
-                    </div>
-                </div>
-                </div>
+                <Cartao cabecalho="31/12/2025">
+                    <Pedido
+                        data="15/06/2024"
+                        icone="bicycle"
+                        titulo="Bicicleta"
+                        descricao="100% sustentavel" />
+                        {componenteFeedback}
+                </Cartao>
             </div>
         </div>
     </div>
-)
+}
 
 export default App
