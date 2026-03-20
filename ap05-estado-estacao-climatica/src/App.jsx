@@ -7,6 +7,8 @@ const App = () => {
   const [estacao, setEstacao] = useState(null)
   const [data, setData] = useState(null)
   const [icone, setIcone] = useState(null)
+  const [hora, setHora] = useState(null)
+  const [mensagemDeErro, setMensagemDeErro] = useState(null)
 
   const icones = {
     'Outono' : 'leaf',
@@ -46,7 +48,13 @@ const App = () => {
       setLongitude(position.coords.longitude)
       setEstacao(estacao)
       setIcone(icone)
-    }, (err) => {})
+      setData(dataAtual.toLocaleDateString())
+      setHora(dataAtual.toLocaleTimeString())
+
+    }, (err) => {
+      console.log(err)
+      setMensagemDeErro('Tente novamente mais tarde')
+    })
   }
 
   return (
@@ -65,7 +73,9 @@ const App = () => {
                 <p className="text-center">
                   {
                     latitude ?
-                    `Cordenadas: ${latitude}, ${longitude}. Data: ${data}` :
+                    `Cordenadas: ${latitude}, ${longitude}. Data: ${data} as ${hora}` :
+                    mensagemDeErro ?
+                    'É preciso permitir o acesso a localização para ver sua estação climatica' :
                     `Clique no botão para saber a sua estação` 
                   }
                 </p>
