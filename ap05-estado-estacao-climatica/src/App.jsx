@@ -64,7 +64,7 @@ const App = () => {
           <div className="card">
             <div className="card-body">
               <div 
-                className="d-flex align-items-center border rounded mb-12"
+                className="d-flex align-items-center border rounded mb-12 col-12"
                 style={{height: '6rem'}}>
                   <i className={`fa-solid fa-4x fa-${icone}`}></i>
                   <p className="w-75 ms-3 text-center fs-1">{estacao}</p>
