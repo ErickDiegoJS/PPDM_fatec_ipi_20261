@@ -1,15 +1,11 @@
 // rafce
 import React from 'react'
 
-const ListaImagem = ({photos}) => {
+const ListaImagem = ({photos, imgStyle}) => {
     return (
-        <div className="col-12">
-            {
-                photos.map((photo, key) => (
-                    <img src={photo.src.small} alt={photo.alt} />
-                ))
-            }
-        </div>
+        photos.map((photo, key) => (
+            <img imgStyle={imgStyle} src={photo.src.small} alt={photo.alt} />
+        ))
     )
 }
 
