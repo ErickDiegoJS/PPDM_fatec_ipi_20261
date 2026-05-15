@@ -1,18 +1,20 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button } from 'react-native';
 import { useState } from 'react'
+import { 
+  Button,
+  StyleSheet, 
+  Text, 
+  View 
+} from 'react-native';
 
 export default function App() {
-
-  const [contador, setContador] = useState(0);
-
+  const [contador, setContador] = useState(0)
   return (
     <View style={styles.container}>
-      <Text>Contador = {contador}</Text>
+      <Text>Clique para contar</Text>
+      <Text>{contador}</Text>
       <Button
-        onPress={() => {setContador(contador+1)}}
-        title="+"
-        color="#158428"
+        title='OK' 
+        onPress={() => {setContador(contador + 1)}}
       />
     </View>
   );

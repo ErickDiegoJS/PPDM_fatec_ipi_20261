@@ -4,6 +4,8 @@
     "bootstrap": "^5.3.8",
     "primeflex": "^4.0.0",
     "primeicons": "^7.0.0",
-    "primereact": "^10.9.7"
+    "primereact": "^10.9.7",
+    "react-dom": "^19.2.6",
+    "react-native-web": "^0.21.2"
   }
 }
